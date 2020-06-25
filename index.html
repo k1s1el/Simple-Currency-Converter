@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currency Converter</title>
+    <title>Simple CC </title>
     <link rel="icon" href="images/icon.png">
     <meta property="og:image" content="images/share.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -18,28 +18,35 @@
 </head>
 
 <body class="body">
-    <h1 class="header">&#128178; CURRENCY CONVERTER 9000 (ultra) &#128178;</h1>
+    <h1 class="header">&#128178; Simple CC - Currency Converter &#128178;</h1>
     <form class="form js-form currencyConverter">
         <fieldset class="form__fieldset">
             <legend class="form__legend">Przelicz walutę</legend>
             <p>
                 <label>
-                    <span class="form__labelText">Kwota w EUR:</span> <input class="js-eurValue form__field"
-                        type="number" step="any" value="1" required>
+                    <span class="form__labelText">Kwota w PLN:</span> <input class="js-amount form__field" type="number"
+                        step="0.01" value="1" required>
                 </label>
             </p>
             <p>
                 <label>
-                    <span class="form__labelText">Kurs:</span> <input class="js-exchangeRate form__field" type="number"
-                        step="any" value="4.45" disabled>
+                    <span class="form__labelText">Przelicz na:</span>
+                    <select name="currency" class="js-currency form__field">
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="USD">USD - Dolar amerykański</option>
+                        <option value="GBP">GBP - Funt brytyjski</option>
+                        <option value="PLN">PLN - Polski złoty</option>
+                    </select>
                 </label>
+            </p>
+            
             </p>
         </fieldset>
         <p>
             <button type="submit" class="form__button js-submit">Przelicz</button>
             <button type="reset" class="form__button js-reset">Wyczyść</button>
         </p>
-        <p>Wartość w PLN <strong class="js-exchangeValue">N/A</strong></p>
+        <p>Wartość: <strong class="js-exchangeValue">N/A</strong></p>
     </form>
 </body>
 
