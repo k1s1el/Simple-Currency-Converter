@@ -1,39 +1,50 @@
-let amountElement = document.querySelector(".js-amount");
-let formElement = document.querySelector(".js-form");
-let currencyElement = document.querySelector(".js-currency");
-let exchangeElement = document.querySelector(".js-exchangeValue")
+{
+    const welcomeFunction = () => {
+        console.log("hello world")
+    };
 
+    welcomeFunction();
 
-let rateEUR = 4.45;
-let rateUSD = 3.95;
-let rateGBP = 4.94;
-let ratePLN = 1;
+    const calculateResult = (amount, currency) => {
 
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
+        const rateEUR = 4.45;
+        const rateUSD = 3.95;
+        const rateGBP = 4.94;
+        const ratePLN = 1;
 
-    let amount = +amountElement.value;
-    let currency = currencyElement.value;
+        switch (currency) {
+            case "EUR":
+                return amount / rateEUR;
 
-    let result;
+            case "USD":
+                return amount / rateUSD;
 
-    switch (currency) {
-        case "EUR":
-            result = amount / rateEUR;
-            break;
+            case "GBP":
+                return amount / rateGBP;
 
-        case "USD":
-            result = amount / rateUSD;
-            break;
+            case "PLN":
+                return amount / ratePLN;
+        };
+    };
 
-        case "GBP":
-            result = amount / rateGBP;
-            break;
+    const init = () => {
+        const formElement = document.querySelector(".js-form");
 
-        case "PLN":
-            result = amount / ratePLN;
-            break;
-    }
-    exchangeElement.innerHTML = `${amount.toFixed(2)} PLN = <strong>${result.toFixed(2)} ${currency} </strong>`;
+        formElement.addEventListener("submit", (event) => {
+            event.preventDefault();
 
-});
+            const amountElement = document.querySelector(".js-amount");
+            const currencyElement = document.querySelector(".js-currency");
+            const exchangeElement = document.querySelector(".js-exchangeValue");
+            const amount = +amountElement.value;
+            const currency = currencyElement.value;
+
+            const result = calculateResult(amount, currency);
+
+            exchangeElement.innerHTML = `${amount.toFixed(2)} PLN = <strong>${result.toFixed(2)} ${currency} </strong>`;
+
+        });
+    };
+
+    init();
+}
