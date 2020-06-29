@@ -47,6 +47,7 @@
 }
 
 .form__fieldset {
+    background: rgba(114, 114, 114, 0.637);
     border: 1px solid rgb(199, 199, 199);
     padding: 30px;
     border-radius: 5px;
