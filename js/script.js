@@ -1,9 +1,10 @@
-{
+{//Welcome function
     const welcomeFunction = () => {
         console.log("hello world")
     };
 
     welcomeFunction();
+}
 
     const calculateResult = (amount, currency) => {
 
@@ -47,4 +48,3 @@
     };
 
     init();
-}
